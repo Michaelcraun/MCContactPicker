@@ -15,19 +15,38 @@ class ContactService {
     
     static let shared = ContactService()
     
-    private var contacts: [CNContact] = []
+    private var contacts: [Contact] {
+        return cnContacts.map({ Contact(contact: $0)  })
+    }
+    private var cnContacts: [CNContact] = []
     private var contactStore: CNContactStore?
     private var hasGivenPermission: Bool = false
     
     var contactList: [ContactGroup] {
-        return sortOption.group(contacts)
+        return sortOption.group(cnContacts)
     }
     var keys: [Key] = [] {
         didSet {
             self.fetch()
         }
     }
+    var searchedContacts: [SearchedContact]? {
+        didSet {
+            print("ContactService - \(#function):", searchedContacts?.count)
+        }
+    }
     var sortOption: SortOption = .alphabeticalByFamilyName
+    
+    init(with keys: [Key] = Key.allCases, sort: SortOption = .alphabeticalByFamilyName) {
+        
+        self.keys = keys
+        
+        requestPermission { (success) in
+            self.hasGivenPermission = success
+            self.fetch()
+        }
+        
+    }
     
     private func fetch() {
         
@@ -43,11 +62,11 @@ class ContactService {
                     contacts.append(contact)
                 }
                 
-                self.contacts = contacts
+                self.cnContacts = contacts
             } catch {
                 
                 print("ContactService - \(#function) encountered an error:", error.localizedDescription)
-                self.contacts = []
+                self.cnContacts = []
                 
             }
             
@@ -71,17 +90,19 @@ class ContactService {
         
     }
     
-    init(with keys: [Key] = Key.allCases, sort: SortOption = .alphabeticalByFamilyName) {
+    func search(text: String) {
         
-        self.keys = keys
-        
-        requestPermission { (success) in
-            self.hasGivenPermission = success
-            self.fetch()
+        if text == "" {
+            searchedContacts = nil
+        } else {
+            searchedContacts = contacts
+                .filter({ $0.matchesSearchText(text).match })
+                .map({ SearchedContact(contact: $0, text: $0.matchesSearchText(text).text ?? "") })
         }
         
     }
     
+    /// - TODO: Add options to filter contacts; might be refactored into requiredKeys property
     enum FilterOption {
         
         

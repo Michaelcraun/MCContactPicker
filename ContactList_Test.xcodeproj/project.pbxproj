@@ -25,6 +25,10 @@
 		9B98CAD425BD14120050D428 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98CAD225BD14120050D428 /* SearchBar.swift */; };
 		9B98CADA25BD19250050D428 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98CAD925BD19250050D428 /* RadioButton.swift */; };
 		9B98CADB25BD19250050D428 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98CAD925BD19250050D428 /* RadioButton.swift */; };
+		9BAF2F3325BDC2E70066982E /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF2F3225BDC2E70066982E /* ContactList.swift */; };
+		9BAF2F3425BDC2E70066982E /* ContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF2F3225BDC2E70066982E /* ContactList.swift */; };
+		9BAF2F3A25BDC2EF0066982E /* SearchedContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF2F3925BDC2EF0066982E /* SearchedContactList.swift */; };
+		9BAF2F3B25BDC2EF0066982E /* SearchedContactList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAF2F3925BDC2EF0066982E /* SearchedContactList.swift */; };
 		9BCDB54E25BD293D00FFAC70 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCDB54D25BD293D00FFAC70 /* Contact.swift */; };
 		9BCDB54F25BD293D00FFAC70 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCDB54D25BD293D00FFAC70 /* Contact.swift */; };
 /* End PBXBuildFile section */
@@ -66,6 +70,8 @@
 		9B98CACB25BCD43A0050D428 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		9B98CAD225BD14120050D428 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		9B98CAD925BD19250050D428 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		9BAF2F3225BDC2E70066982E /* ContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList.swift; sourceTree = "<group>"; };
+		9BAF2F3925BDC2EF0066982E /* SearchedContactList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchedContactList.swift; sourceTree = "<group>"; };
 		9BCDB54D25BD293D00FFAC70 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +193,8 @@
 				9B98CACB25BCD43A0050D428 /* ContactCell.swift */,
 				9B98CAD925BD19250050D428 /* RadioButton.swift */,
 				9B98CAD225BD14120050D428 /* SearchBar.swift */,
+				9BAF2F3225BDC2E70066982E /* ContactList.swift */,
+				9BAF2F3925BDC2EF0066982E /* SearchedContactList.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -354,8 +362,10 @@
 				9B98CA9F25BC6D110050D428 /* ContentView.swift in Sources */,
 				9BCDB54E25BD293D00FFAC70 /* Contact.swift in Sources */,
 				9B98CABA25BC6DD30050D428 /* ContactPicker.swift in Sources */,
+				9BAF2F3325BDC2E70066982E /* ContactList.swift in Sources */,
 				9B98CA9D25BC6D110050D428 /* ContactList_TestApp.swift in Sources */,
 				9B98CAD325BD14120050D428 /* SearchBar.swift in Sources */,
+				9BAF2F3A25BDC2EF0066982E /* SearchedContactList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,8 +379,10 @@
 				9B98CAA025BC6D110050D428 /* ContentView.swift in Sources */,
 				9BCDB54F25BD293D00FFAC70 /* Contact.swift in Sources */,
 				9B98CABB25BC6DD30050D428 /* ContactPicker.swift in Sources */,
+				9BAF2F3425BDC2E70066982E /* ContactList.swift in Sources */,
 				9B98CA9E25BC6D110050D428 /* ContactList_TestApp.swift in Sources */,
 				9B98CAD425BD14120050D428 /* SearchBar.swift in Sources */,
+				9BAF2F3B25BDC2EF0066982E /* SearchedContactList.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

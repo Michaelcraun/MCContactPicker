@@ -8,6 +8,7 @@
 import SwiftUI
 import Contacts
 
+/// - TODO: Add option to view contact before choosing, if selecting singular contact
 struct ContactPicker: View {
     
     typealias ContactSelected = (Contact) -> Void
@@ -20,6 +21,9 @@ struct ContactPicker: View {
     private let service = ContactService()
     private let onContactSelected: ContactSelected?
     private let onContactsSelected: ContactsSelected?
+    private var allowsMultiSelect: Bool {
+        return onContactsSelected != nil
+    }
     
     var body: some View {
         
@@ -52,38 +56,24 @@ struct ContactPicker: View {
             
             SearchBar(text: $searchText)
             
-            List {
+            if service.searchedContacts == nil {
                 
-                ForEach(service.contactList) { group in
-                    
-                    Section(header: Text(group.id)) {
-                        
-                        ForEach(group.contacts) { contact in
-                            
-                            ContactCell(contact: contact, allowsMultiSelect: onContactsSelected != nil) { contact in
-                                
-                                if onContactsSelected == nil {
-                                    onContactSelected?(contact)
-                                    presentationMode.wrappedValue.dismiss()
-                                } else {
-                                    if selectedContacts.contains(contact) {
-                                        selectedContacts.removeAll(where: { $0 == contact })
-                                    } else {
-                                        selectedContacts.append(contact)
-                                    }
-                                }
-                                
-                            }
-                            
-                        }
-                        
-                    }
-                    
+                ContactList(contactGroups: service.contactList, allowsMultiSelect: allowsMultiSelect) {
+                    contactWasSelected($0)
+                }
+                
+            } else {
+                
+                SearchedContactList(contacts: service.searchedContacts!, allowsMultiSelect: allowsMultiSelect) { contactWasSelected($0)
                 }
                 
             }
             
         }
+        .onChange(of: searchText, perform: { value in
+            print("Search:", value)
+            service.search(text: value)
+        })
         
     }
     
@@ -91,6 +81,21 @@ struct ContactPicker: View {
         
         self.onContactSelected = onSelectContact
         self.onContactsSelected = onSelectContacts
+        
+    }
+    
+    private func contactWasSelected(_ contact: Contact) {
+        
+        if onContactsSelected == nil {
+            onContactSelected?(contact)
+            presentationMode.wrappedValue.dismiss()
+        } else {
+            if selectedContacts.contains(contact) {
+                selectedContacts.removeAll(where: { $0 == contact })
+            } else {
+                selectedContacts.append(contact)
+            }
+        }
         
     }
     
