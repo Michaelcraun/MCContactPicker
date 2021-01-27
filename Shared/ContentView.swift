@@ -23,7 +23,7 @@ struct ContentView: View {
                 
             }
             .sheet(isPresented: $isShowingContactPicker, content: {
-                ContactPicker
+                ContactPicker()
                 { contact in
                     print(contact.givenName)
                 }

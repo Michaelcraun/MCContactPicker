@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContactList: View {
     
-    let contactGroups: [ContactGroup]
+    @State var contactGroups: [ContactGroup]
     let allowsMultiSelect: Bool
     let onSelect: (Contact) -> Void
     
@@ -44,6 +44,6 @@ struct ContactList: View {
 
 struct ContactList_Previews: PreviewProvider {
     static var previews: some View {
-        ContactList(contactGroups: [], allowsMultiSelect: true, onSelect: { _ in })
+        ContactList(contactGroups: .init(), allowsMultiSelect: true, onSelect: { _ in })
     }
 }

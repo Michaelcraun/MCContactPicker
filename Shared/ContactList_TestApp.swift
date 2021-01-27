@@ -14,4 +14,8 @@ struct ContactList_TestApp: App {
             ContentView()
         }
     }
+    
+    init() {
+        ContactService.shared.requestPermission()
+    }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B73046625C0EFD9004FC8E3 /* ContactPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73046525C0EFD9004FC8E3 /* ContactPickerViewModel.swift */; };
+		9B73046725C0EFD9004FC8E3 /* ContactPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B73046525C0EFD9004FC8E3 /* ContactPickerViewModel.swift */; };
 		9B98CA9025BC6D110050D428 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98CA8F25BC6D110050D428 /* Tests_iOS.swift */; };
 		9B98CA9B25BC6D110050D428 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98CA9A25BC6D110050D428 /* Tests_macOS.swift */; };
 		9B98CA9D25BC6D110050D428 /* ContactList_TestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B98CA7425BC6D0D0050D428 /* ContactList_TestApp.swift */; };
@@ -51,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B73046525C0EFD9004FC8E3 /* ContactPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPickerViewModel.swift; sourceTree = "<group>"; };
 		9B98CA7425BC6D0D0050D428 /* ContactList_TestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactList_TestApp.swift; sourceTree = "<group>"; };
 		9B98CA7525BC6D0D0050D428 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9B98CA7625BC6D110050D428 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -183,6 +186,7 @@
 				9BCDB54D25BD293D00FFAC70 /* Contact.swift */,
 				9B98CAB925BC6DD30050D428 /* ContactPicker.swift */,
 				9B98CAC425BC6EE70050D428 /* ContactService.swift */,
+				9B73046525C0EFD9004FC8E3 /* ContactPickerViewModel.swift */,
 			);
 			path = ContactPicker;
 			sourceTree = "<group>";
@@ -358,6 +362,7 @@
 			files = (
 				9B98CACC25BCD43A0050D428 /* ContactCell.swift in Sources */,
 				9B98CADA25BD19250050D428 /* RadioButton.swift in Sources */,
+				9B73046625C0EFD9004FC8E3 /* ContactPickerViewModel.swift in Sources */,
 				9B98CAC525BC6EE70050D428 /* ContactService.swift in Sources */,
 				9B98CA9F25BC6D110050D428 /* ContentView.swift in Sources */,
 				9BCDB54E25BD293D00FFAC70 /* Contact.swift in Sources */,
@@ -375,6 +380,7 @@
 			files = (
 				9B98CACD25BCD43A0050D428 /* ContactCell.swift in Sources */,
 				9B98CADB25BD19250050D428 /* RadioButton.swift in Sources */,
+				9B73046725C0EFD9004FC8E3 /* ContactPickerViewModel.swift in Sources */,
 				9B98CAC625BC6EE70050D428 /* ContactService.swift in Sources */,
 				9B98CAA025BC6D110050D428 /* ContentView.swift in Sources */,
 				9BCDB54F25BD293D00FFAC70 /* Contact.swift in Sources */,

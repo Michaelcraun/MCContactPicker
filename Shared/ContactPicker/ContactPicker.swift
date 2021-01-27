@@ -15,6 +15,7 @@ struct ContactPicker: View {
     typealias ContactsSelected = ([Contact]) -> Void
     
     @Environment(\.presentationMode) private var presentationMode
+    @ObservedObject private var model: ContactPickerViewModel
     @State private var searchText: String = ""
     @State private var selectedContacts: [Contact] = []
     
@@ -56,29 +57,29 @@ struct ContactPicker: View {
             
             SearchBar(text: $searchText)
             
-            if service.searchedContacts == nil {
+            if searchText.isEmpty {
                 
-                ContactList(contactGroups: service.contactList, allowsMultiSelect: allowsMultiSelect) {
+                ContactList(contactGroups: model.contactList, allowsMultiSelect: allowsMultiSelect) {
                     contactWasSelected($0)
                 }
                 
             } else {
                 
-                SearchedContactList(contacts: service.searchedContacts!, allowsMultiSelect: allowsMultiSelect) { contactWasSelected($0)
+                SearchedContactList(contacts: model.searchedContacts, allowsMultiSelect: allowsMultiSelect) { contactWasSelected($0)
                 }
                 
             }
             
         }
         .onChange(of: searchText, perform: { value in
-            print("Search:", value)
-            service.search(text: value)
+            model.search(text: value)
         })
         
     }
     
-    init(onSelectContact: ContactSelected? = nil, onSelectContacts: ContactsSelected? = nil) {
+    init(model: ContactPickerViewModel = ContactPickerViewModel(), onSelectContact: ContactSelected? = nil, onSelectContacts: ContactsSelected? = nil) {
         
+        self.model = model
         self.onContactSelected = onSelectContact
         self.onContactsSelected = onSelectContacts
         

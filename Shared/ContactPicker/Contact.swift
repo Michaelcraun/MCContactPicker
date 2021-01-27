@@ -194,7 +194,7 @@ struct ContactGroup: Identifiable {
     
 }
 
-struct SearchedContact: Identifiable {
+struct SearchedContact: Identifiable, Equatable {
     
     let contact: Contact
     let id: String = UUID().uuidString
